@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+Rate the Hero
+Rate the Hero é uma aplicação web desenvolvida com React que permite aos usuários avaliar heróis com base em critérios específicos. Este projeto foi desenvolvido como parte de um trabalho acadêmico do curso Técnico em Web Design na FIAP, com o objetivo de praticar os fundamentos do React, incluindo componentes, props, estado e eventos.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🚀 Tecnologias Utilizadas
+React
 
-## Available Scripts
+JavaScript (ES6+)
 
-In the project directory, you can run:
+HTML5 & CSS3
 
-### `npm start`
+Create React App
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+📁 Estrutura do Projeto
+O projeto segue a estrutura padrão do Create React App:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+java
+Copiar
+Editar
+rate-the-hero/
+├── public/
+│   └── index.html
+├── src/
+│   ├── App.js
+│   ├── index.js
+│   └── ... (outros componentes)
+├── package.json
+└── README.md
+🧠 Funcionalidades
+Exibição de uma lista de heróis
 
-### `npm test`
+Sistema de avaliação para cada herói
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Interface interativa e responsiva
 
-### `npm run build`
+🛠️ Como Executar o Projeto
+Clone o repositório:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+bash
+Copiar
+Editar
+git clone https://github.com/nataliaguaita/rate-the-hero.git
+Navegue até o diretório do projeto:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+bash
+Copiar
+Editar
+cd rate-the-hero
+Instale as dependências:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+bash
+Copiar
+Editar
+npm install
+Inicie a aplicação:
 
-### `npm run eject`
+bash
+Copiar
+Editar
+npm start
+A aplicação estará disponível em http://localhost:3000.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+📚 Aprendizados
+Durante o desenvolvimento deste projeto, foram explorados conceitos fundamentais do React, como:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Criação e composição de componentes
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Gerenciamento de estado com useState
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Manipulação de eventos
 
-## Learn More
+Estilização de componentes
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+📌 Observações
+Este projeto está em desenvolvimento e novas funcionalidades serão adicionadas em breve.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+📄 Licença
+Este projeto está sob a licença MIT. Consulte o arquivo LICENSE para mais informações.
