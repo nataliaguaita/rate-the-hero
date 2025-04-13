@@ -1,65 +1,45 @@
-Rate the Hero
-Rate the Hero é uma aplicação web desenvolvida com React que permite aos usuários avaliar heróis com base em critérios específicos. Este projeto foi desenvolvido como parte de um trabalho acadêmico do curso Técnico em Web Design na FIAP, com o objetivo de praticar os fundamentos do React, incluindo componentes, props, estado e eventos.
+# Rate the Hero
 
-🚀 Tecnologias Utilizadas
-React
+**Rate the Hero** é uma aplicação web desenvolvida com React que permite aos usuários avaliar heróis com base em critérios específicos. Este projeto foi desenvolvido como parte de um **trabalho acadêmico do curso Técnico em Web Design na FIAP**, com o objetivo de praticar os fundamentos do React, incluindo componentes, props, estado e eventos.
 
-JavaScript (ES6+)
+## 🚀 Tecnologias Utilizadas
 
-HTML5 & CSS3
+- React  
+- JavaScript (ES6+)  
+- HTML5 & CSS3  
+- Create React App
 
-Create React App
+## 🧠 Funcionalidades
 
-📁 Estrutura do Projeto
-O projeto segue a estrutura padrão do Create React App:
+- Exibição de uma lista de heróis  
+- Sistema de avaliação para cada herói  
+- Interface interativa e responsiva  
 
-java
-Copiar
-Editar
-rate-the-hero/
-├── public/
-│   └── index.html
-├── src/
-│   ├── App.js
-│   ├── index.js
-│   └── ... (outros componentes)
-├── package.json
-└── README.md
-🧠 Funcionalidades
-Exibição de uma lista de heróis
+## 🛠️ Como Executar o Projeto
 
-Sistema de avaliação para cada herói
+1. Clone o repositório:
 
-Interface interativa e responsiva
+   ```bash
+   git clone https://github.com/nataliaguaita/rate-the-hero.git
 
-🛠️ Como Executar o Projeto
-Clone o repositório:
+2. Navegue até o diretório do projeto:
+   
+   ```bash
+   cd rate-the-hero
 
-bash
-Copiar
-Editar
-git clone https://github.com/nataliaguaita/rate-the-hero.git
-Navegue até o diretório do projeto:
+3. Instale as dependências:
 
-bash
-Copiar
-Editar
-cd rate-the-hero
-Instale as dependências:
+   ```bash
+   npm install
 
-bash
-Copiar
-Editar
-npm install
-Inicie a aplicação:
+4. Inicie a aplicação:
 
-bash
-Copiar
-Editar
-npm start
+   ```bash
+   npm start  
+
 A aplicação estará disponível em http://localhost:3000.
 
-📚 Aprendizados
+## 📚 Aprendizados
 Durante o desenvolvimento deste projeto, foram explorados conceitos fundamentais do React, como:
 
 Criação e composição de componentes
@@ -70,8 +50,8 @@ Manipulação de eventos
 
 Estilização de componentes
 
-📌 Observações
+## 📌 Observações
 Este projeto está em desenvolvimento e novas funcionalidades serão adicionadas em breve.
 
-📄 Licença
+## 📄 Licença
 Este projeto está sob a licença MIT. Consulte o arquivo LICENSE para mais informações.
