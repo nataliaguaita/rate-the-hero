@@ -11,7 +11,7 @@ import searchIcon from '../../assets/icons/search.svg';
 const Wrapper = styled.div`
 	display: grid;
 	align-items: center;
-	grid-template-columns: 16px 1fr;
+	grid-template-columns: 10px 200px auto 100px;
 	gap: ${Spaces.TWO};
 	padding: ${Spaces.NONE} ${Spaces.TWO};
 	background-color: ${Colors.GRAY_200};
