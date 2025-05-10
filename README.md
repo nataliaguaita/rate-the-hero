@@ -42,13 +42,10 @@ A aplicação estará disponível em http://localhost:3000.
 ## 📚 Aprendizados
 Durante o desenvolvimento deste projeto, foram explorados conceitos fundamentais do React, como:
 
-Criação e composição de componentes
-
-Gerenciamento de estado com useState
-
-Manipulação de eventos
-
-Estilização de componentes
+- Criação e composição de componentes
+- Gerenciamento de estado com useState
+- Manipulação de eventos
+- Estilização de componentes
 
 ## 📌 Observações
 Este projeto está em desenvolvimento e novas funcionalidades serão adicionadas em breve.
