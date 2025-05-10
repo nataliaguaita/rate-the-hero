@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { Card } from '../../commom-components/Card/Card';
-import { Caption } from '../../commom-components/Caption/Caption';
-import { Description } from '../../commom-components/Description/Description';
-import { HeadingTwo } from '../../commom-components/HeadingTwo/HeadingTwo';
+import { Card } from '../../common-components/Card/Card';
+import { Caption } from '../../common-components/Caption/Caption';
+import { Description } from '../../common-components/Description/Description';
+import { HeadingTwo } from '../../common-components/HeadingTwo/HeadingTwo';
 import { BorderRadiuses, Colors, Spaces } from '../../shared/DesignTokens';
 import Skeleton from 'react-loading-skeleton';
 

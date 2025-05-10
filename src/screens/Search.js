@@ -1,82 +1,55 @@
-import React from 'react';
-import styled from 'styled-components';
-import useAxios from 'axios-hooks';
+import { Box, Button, Flex, Grid, Text } from '@chakra-ui/react'; // Importando Chakra UI
 import { HeroCardLoader } from '../components/HeroCard/HeroCardLoader';
-import { Button } from '../commom-components/Button/Button';
-import { SearchField } from '../commom-components/SearchField/SearchField';
-import { Spaces } from '../shared/DesignTokens';
+import { SearchField } from '../common-components/SearchField/SearchField';
 import { HeroCard } from '../components/HeroCard/HeroCard';
-import { Alert } from '../commom-components/Alert/Alert';
-
-const Container = styled.div`
-	width: 100%;
-	max-width: 600px;
-	height: 50px;
-	margin: ${Spaces.THREE} auto ${Spaces.FOUR} auto;
-	padding: 0 ${Spaces.ONE};
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-`;
-
-const HeroesGrid = styled.div`
-	padding: ${Spaces.ONE} ${Spaces.TWO};
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: ${Spaces.ONE_HALF};
-
-	@media (min-width: 1024px) {
-		grid-template-columns: repeat(4, 1fr);
-		gap: ${Spaces.TWO};
-	}
-`;
-
-const SearchWrapper = styled.div`
-	display: flex; 
-	align-items: center;
-`;
+import { Alert } from '../common-components/Alert/Alert';
+import { useHeroes } from '../hooks/useHeroes';
 
 export function Search() {
-	const [search, setSearch] = React.useState({
-		value: 'captain',
-	});
-
-	const [{ data: heroes, loading: isLoadingHeroes }, executeSearch] = useAxios(
-		`/search/${search.value}`,
-		{ manual: true }
-	);
-
-	// Atualizar o valor de busca
-	function handleUpdateSearchValue({ target: { value } }) {
-		setSearch({ value });
-	}
-
-	// Atualizar quando o botão de busca for clicado
-	function handleSearch() {
-		// Aqui você dispara a requisição manualmente
-		executeSearch();
-	}
+	const {
+		heroes,
+		isLoadingHeroes,
+		handleUpdateSearchValue,
+		handleSearch,
+	} = useHeroes();
 
 	return (
 		<>
-			<Container>
-				<SearchWrapper>
-					<SearchField
-						placeholder="Digite um nome de herói"
-						onChange={handleUpdateSearchValue}
-					/>
-					<Button onClick={handleSearch}>Buscar</Button>
-				</SearchWrapper>
-			</Container>
+			{/* Container */}
+			<Box width="100%" maxWidth="600px" height="50px" margin="3rem auto 4rem auto" padding="0 1rem">
+				<Flex justifyContent="space-between" alignItems="center">
+					{/* Search Input and Button */}
+					<Flex alignItems="center">
+						<SearchField
+							placeholder="Digite um nome de herói"
+							onChange={handleUpdateSearchValue}
+						/>
+						<Button onClick={handleSearch}>Buscar</Button>
+					</Flex>
+				</Flex>
+			</Box>
 
+			{/* Alert for no results */}
 			{!isLoadingHeroes && heroes?.error ? (
-				<Container>
+				<Box width="100%" maxWidth="600px" margin="3rem auto 4rem auto">
 					<Alert>
 						Nenhum registro de herói ou heroína foi encontrado.
 					</Alert>
-				</Container>
+				</Box>
 			) : (
-				<HeroesGrid>
+				// Heroes Grid
+				<Grid
+					templateColumns="1fr"
+					gap="1.5rem"
+					padding="1rem 2rem"
+					// Responsividade para dispositivos maiores
+					css={{
+						'@media (min-width: 1024px)': {
+							gridTemplateColumns: 'repeat(4, 1fr)',
+							gap: '2rem',
+						},
+					}}
+				>
 					{isLoadingHeroes && (
 						<>
 							<HeroCardLoader />
@@ -85,6 +58,7 @@ export function Search() {
 							<HeroCardLoader />
 						</>
 					)}
+
 					{!isLoadingHeroes &&
 						heroes?.results?.map((hero) => (
 							<HeroCard
@@ -96,7 +70,7 @@ export function Search() {
 								universe={hero.biography.publisher}
 							/>
 						))}
-				</HeroesGrid>
+				</Grid>
 			)}
 		</>
 	);
