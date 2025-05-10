@@ -1,9 +1,10 @@
-import { Box, Button, Flex, Grid, Text } from '@chakra-ui/react'; // Importando Chakra UI
+import { Box, Flex, Grid } from '@chakra-ui/react';
 import { HeroCardLoader } from '../components/HeroCard/HeroCardLoader';
 import { SearchField } from '../common-components/SearchField/SearchField';
 import { HeroCard } from '../components/HeroCard/HeroCard';
 import { Alert } from '../common-components/Alert/Alert';
 import { useHeroes } from '../hooks/useHeroes';
+import { Button } from '../common-components/Button/Button';
 
 export function Search() {
 	const {

@@ -15,7 +15,9 @@ import { HeadingTwo } from '../common-components/HeadingTwo/HeadingTwo';
 import { Description } from '../common-components/Description/Description';
 import { Card } from '../common-components/Card/Card';
 import { Caption } from '../common-components/Caption/Caption';
-import { useHistory } from 'react-router';
+import { useNavigate, useParams } from 'react-router-dom';	
+import { useHero } from '../hooks/useHero';
+
 
 const Container = styled.aside`
 	width: 727px;
@@ -33,22 +35,25 @@ const HeroAvatar = styled.div`
 	background-position: center 25%;
 	`;
 
-const DetailsGrid = styled.section`
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	gap: ${Spaces.TWO};
-	`;
 
 export function Details() {
-	const history = useHistory();
+	const navigate = useNavigate();
+	const { id } = useParams();
+	const { hero, isLoadingHero } = useHero(id);
+
 	const handleBack = () => {
-		history.goBack();
+		navigate(-1);
 	};
+
+	// Protege contra acessos indevidos
+	if (isLoadingHero || !hero) {
+		return null; // Ou renderize um spinner aqui
+	}
 
 	return (
 		<Container>
 			<Flex mt={Spaces.FOUR} as="section">
-				<HeroAvatar src="https://www.superherodb.com/pictures2/portraits/10/100/274.jpg" />
+				<HeroAvatar src={hero.image?.url} />
 				<Flex flexDirection="column" justifyContent="center" height={194} ml={Spaces.SEVEN}>
 					<Flex>
 						<SelectField>
@@ -69,9 +74,9 @@ export function Details() {
 			</Flex>
 
 			<Box my={Spaces.ONE_HALF} as="section">
-				<HeadingTwo as="h1">Captain America</HeadingTwo>
+				<HeadingTwo as="h1">{hero.name}</HeadingTwo>
 				<Description color={Colors.GRAY_700}>
-					Steve Rogers - Marvel
+					{hero.biography?.['full-name']} - {hero.biography?.publisher}
 				</Description>
 			</Box>
 
@@ -82,7 +87,7 @@ export function Details() {
 							<Caption>Codinomes</Caption>
 						</Box>
 						<Description color={Colors.GRAY_700}>
-							Cap, Cap. Rogers
+							{hero.biography?.aliases?.join(', ')}
 						</Description>
 					</Box>
 				</Card>
@@ -93,7 +98,7 @@ export function Details() {
 							<Caption>Local de Nascimento</Caption>
 						</Box>
 						<Description color={Colors.GRAY_700}>
-							Brooklyn - NY
+							{hero.biography?.['place-of-birth']}
 						</Description>
 					</Box>
 				</Card>
@@ -104,7 +109,7 @@ export function Details() {
 							<Caption>Primeira HQ</Caption>
 						</Box>
 						<Description color={Colors.GRAY_700}>
-							Captain America Comics #1
+							{hero.biography?.['first-appearance']}
 						</Description>
 					</Box>
 				</Card>
@@ -115,17 +120,17 @@ export function Details() {
 							<Caption>Informações Biológicas</Caption>
 						</Box>
 						<Description color={Colors.GRAY_700}>
-							<strong>Genero: </strong> Masculino
+							<strong>Gênero:</strong> {hero.appearance?.gender}
 							<br />
-							<strong>Raça: </strong> Humano
+							<strong>Raça:</strong> {hero.appearance?.race}
 							<br />
-							<strong>Altura: </strong> 1,88 m
+							<strong>Altura:</strong> {hero.appearance?.height?.[1]}
 							<br />
-							<strong>Peso: </strong> 95 kg
+							<strong>Peso:</strong> {hero.appearance?.weight?.[1]}
 							<br />
-							<strong>Cor do olho: </strong> Azul
+							<strong>Cor do olho:</strong> {hero.appearance?.['eye-color']}
 							<br />
-							<strong>Cor do cabelo: </strong> Loiro
+							<strong>Cor do cabelo:</strong> {hero.appearance?.['hair-color']}
 						</Description>
 					</Box>
 				</Card>
@@ -136,17 +141,17 @@ export function Details() {
 							<Caption>Atributos</Caption>
 						</Box>
 						<Description color={Colors.GRAY_700}>
-							<strong>Força: </strong> 100
+							<strong>Força:</strong> {hero.powerstats?.strength}
 							<br />
-							<strong>Inteligência: </strong> 100
+							<strong>Inteligência:</strong> {hero.powerstats?.intelligence}
 							<br />
-							<strong>Velocidade: </strong> 100
+							<strong>Velocidade:</strong> {hero.powerstats?.speed}
 							<br />
-							<strong>Resistência: </strong> 100
+							<strong>Resistência:</strong> {hero.powerstats?.durability}
 							<br />
-							<strong>Poder: </strong> 100
+							<strong>Poder:</strong> {hero.powerstats?.power}
 							<br />
-							<strong>Combate: </strong> 100
+							<strong>Combate:</strong> {hero.powerstats?.combat}
 						</Description>
 					</Box>
 				</Card>
