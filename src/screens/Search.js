@@ -6,6 +6,7 @@ import { Button } from '../commom-components/Button/Button';
 import { SearchField } from '../commom-components/SearchField/SearchField';
 import { Spaces } from '../shared/DesignTokens';
 import { HeroCard } from '../components/HeroCard/HeroCard';
+import { Alert } from '../commom-components/Alert/Alert';
 
 const Container = styled.div`
 	width: 100%;
@@ -40,10 +41,9 @@ export function Search() {
 		value: 'captain',
 	});
 
-	// Configuração do useAxios com 'manual: true' para não disparar automaticamente
 	const [{ data: heroes, loading: isLoadingHeroes }, executeSearch] = useAxios(
 		`/search/${search.value}`,
-		{ manual: true } // A requisição não será disparada automaticamente
+		{ manual: true }
 	);
 
 	// Atualizar o valor de busca
@@ -71,9 +71,9 @@ export function Search() {
 
 			{!isLoadingHeroes && heroes?.error ? (
 				<Container>
-					<div style={{ color: '#666' }}>
+					<Alert>
 						Nenhum registro de herói ou heroína foi encontrado.
-					</div>
+					</Alert>
 				</Container>
 			) : (
 				<HeroesGrid>

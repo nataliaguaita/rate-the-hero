@@ -26,8 +26,9 @@ export const Alert = styled.div`
 	width: 100%;
 	height: 100%;
 	border-radius: ${BorderRadiuses.ONE};
-	color: ${(props) => colorMapper[props.type].color};
-	background-color: ${(props) => colorMapper[props.type].backgroundColor};
+	color: ${(props) => colorMapper[props.type]?.color || Colors.GRAY_700};
+	background-color: ${(props) =>
+		colorMapper[props.type]?.backgroundColor || Colors.GRAY_200};
 	padding: ${(props) => props.small && Spaces.ONE} ${Spaces.ONE_HALF};
 	font-size: ${(props) =>
 		props.small ? FontSizes.ONE_QUARTER : FontSizes.TWO};
