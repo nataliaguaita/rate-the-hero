@@ -10,6 +10,7 @@ import {
 	Shadows,
 	Spaces,
 } from '../../shared/DesignTokens';
+import { useHero } from '../../hooks/useHero';
 
 // Container para exibir as informações do herói
 const InformationGrid = styled.div`
@@ -39,6 +40,8 @@ const ButtonWrapper = styled.div`
 	`;
 
 export function HeroCard({ secretIdentity, name, picture, universe, id }) {
+	const {getHeroAvaliation} = useHero();
+
 	return (
 		<Card>
 			<InformationGrid>
@@ -53,7 +56,7 @@ export function HeroCard({ secretIdentity, name, picture, universe, id }) {
 						<strong>Universo:</strong> {universe}
 					</Description>
 					<Description as="div" color={Colors.GRAY_700}>
-						<strong>Nota atual:</strong> -
+						<strong>Nota atual:</strong> {getHeroAvaliation(id)?.avaliation || 'Sem nota'}
 					</Description>
 				</div>
 				<HeroAvatar src={picture} />

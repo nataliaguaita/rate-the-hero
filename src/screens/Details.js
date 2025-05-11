@@ -10,6 +10,7 @@ import {
 	SelectField,
 	Option,
 } from '../common-components/SelectField/SelectField';
+import { Alert } from '../common-components/Alert/Alert';
 import { Button } from '../common-components/Button/Button';
 import { HeadingTwo } from '../common-components/HeadingTwo/HeadingTwo';
 import { Description } from '../common-components/Description/Description';
@@ -17,6 +18,10 @@ import { Card } from '../common-components/Card/Card';
 import { Caption } from '../common-components/Caption/Caption';
 import { useNavigate, useParams } from 'react-router-dom';	
 import { useHero } from '../hooks/useHero';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+
+
 
 
 const Container = styled.aside`
@@ -39,7 +44,20 @@ const HeroAvatar = styled.div`
 export function Details() {
 	const navigate = useNavigate();
 	const { id } = useParams();
-	const { hero, isLoadingHero } = useHero(id);
+	const { hero, isLoadingHero, getHeroAvaliation, setHeroAvaliation } = useHero(id);
+
+	const formik = useFormik({
+		initialValues: getHeroAvaliation(id) || { avaliation: '' },
+		validationSchema: Yup.object().shape({
+			avaliation: Yup.string().required(),
+		}),
+		onSubmit: (values) => {
+			setHeroAvaliation({ ...hero, ...values });
+
+			alert('Nota atribuída com sucesso!');
+			navigate(-1);
+		},
+	});
 
 	const handleBack = () => {
 		navigate(-1);
@@ -55,8 +73,9 @@ export function Details() {
 			<Flex mt={Spaces.FOUR} as="section">
 				<HeroAvatar src={hero.image?.url} />
 				<Flex flexDirection="column" justifyContent="center" height={194} ml={Spaces.SEVEN}>
+					<form onSubmit={formik.handleSubmit} noValidate>
 					<Flex>
-						<SelectField>
+						<SelectField onChange={formik.handleChange} name="avaliation" value={formik.values.avaliation} required>
 							<Option value="" selected disabled>
 								Selecione a nota
 							</Option>
@@ -67,9 +86,17 @@ export function Details() {
 							<Option>1</Option>
 						</SelectField>
 						<Box ml={Spaces.THREE}>
-							<Button>Atribuir</Button>
+							<Button type="submit">Salvar</Button>
 						</Box>
 					</Flex>
+					{formik.errors.avaliation && (
+						<Box mt={Spaces.TWO}>
+							<Alert type="error">
+								Escolha uma nota para ser atribuída!
+							</Alert>
+						</Box>
+						)}
+					</form>
 				</Flex>
 			</Flex>
 
