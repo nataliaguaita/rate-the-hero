@@ -1,54 +1,36 @@
-# Rate the Hero
+# 🎮 Rate the Hero
 
-**Rate the Hero** é uma aplicação web desenvolvida com React que permite aos usuários avaliar heróis com base em critérios específicos. Este projeto foi desenvolvido como parte de um **trabalho acadêmico do curso Técnico em Web Design na FIAP**, com o objetivo de praticar os fundamentos do React, incluindo componentes, props, estado e eventos.
+Avalie seus heróis favoritos com estilo! O **Rate the Hero** é um projeto desenvolvido como parte dos estudos em Web Design, onde você pode visualizar cards de personagens e atribuir uma nota para cada um deles.
 
-## 🚀 Tecnologias Utilizadas
+🔗 **Acesse o projeto online:**  
+👉 [https://rate-the-hero-six.vercel.app/](https://rate-the-hero-six.vercel.app/)
 
-- React  
-- JavaScript (ES6+)  
-- HTML5 & CSS3  
-- Create React App
+## ✨ Funcionalidades
 
-## 🧠 Funcionalidades
+- Listagem de heróis com imagem, nome e descrição.
+- Avaliação individual com nota de 1 a 5 estrelas.
+- Interface moderna e responsiva.
 
-- Exibição de uma lista de heróis  
-- Sistema de avaliação para cada herói  
-- Interface interativa e responsiva  
+## 🛠️ Tecnologias utilizadas
 
-## 🛠️ Como Executar o Projeto
+- **React**
+- **Vite**
+- **Chakra UI** (interface e responsividade)
+- **TypeScript**
+- **React Icons**
 
-1. Clone o repositório:
+## 📁 Como rodar localmente
 
-   ```bash
-   git clone https://github.com/nataliaguaita/rate-the-hero.git
+```bash
+# Clone o repositório
+git clone https://github.com/nataliaguaita/rate-the-hero.git
 
-2. Navegue até o diretório do projeto:
-   
-   ```bash
-   cd rate-the-hero
+# Acesse o diretório
+cd rate-the-hero
 
-3. Instale as dependências:
+# Instale as dependências
+npm install
 
-   ```bash
-   npm install
-
-4. Inicie a aplicação:
-
-   ```bash
-   npm start  
-
-A aplicação estará disponível em http://localhost:3000.
-
-## 📚 Aprendizados
-Durante o desenvolvimento deste projeto, foram explorados conceitos fundamentais do React, como:
-
-- Criação e composição de componentes
-- Gerenciamento de estado com useState
-- Manipulação de eventos
-- Estilização de componentes
-
-## 📌 Observações
-Este projeto está em desenvolvimento e novas funcionalidades serão adicionadas em breve.
-
-## 📄 Licença
-Este projeto está sob a licença MIT. Consulte o arquivo LICENSE para mais informações.
+# Inicie o projeto
+npm run dev
+```
